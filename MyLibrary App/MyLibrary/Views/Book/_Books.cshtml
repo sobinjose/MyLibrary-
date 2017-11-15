@@ -1,0 +1,22 @@
+﻿@model IPagedList<BookListViewModel>
+
+<div id="bookList">
+
+    <div class="pagedList" data-otf-target="#bookList">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+        PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+
+
+    @foreach (var item in Model)
+    {
+        <div id="testDiv">
+            <h4>@item.Title</h4>
+            <div>
+                @item.Author
+            </div>
+        
+            <hr />
+        </div>
+    }
+</div>
